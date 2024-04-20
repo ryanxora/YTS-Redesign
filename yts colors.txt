@@ -1,0 +1,10 @@
+logo : #6AC045;
+navbar : #1D1D1D;
+headline : #FFFFFF;
+quality-btn : #111111;
+bg-dark : #171717;
+text-light : #ccc;
+#6AC045  #00AF4A  #0093D5
+
+
+font-family : arimo;

@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
+@import 'resets';
+@import 'variables';
+
+body{
+    font-family: "Arimo", sans-serif;
+    
+}
+
+h1{
+    font-size: $fz-h1;
+    line-height: $line-title;
+}
+h2{
+    font-size: $fz-h2;
+    line-height: $line-title;
+}
+h3{
+    font-size: $fz-h3;
+    line-height: $line-title;
+}
+h4{
+    font-size: $fz-h4;
+    line-height: $line-sub-title;
+}
+h5{
+    font-size: $fz-h5;
+    line-height: $line-sub-title;
+}
+h6{
+    font-size: $fz-h6;
+    line-height: $line-sub-title;
+}
+p{
+    font-size: $fz-p;
+    line-height: $line-paragraph;
+}
+
+
+@mixin bg-reset(){
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin card-movie(){
+    position: relative;
+    width: 200px ;
+    height: 280px;
+    cursor: pointer;
+    border: 4px solid white;
+    transition: all ease 0.3s;
+    &:hover .card-hide{
+        opacity: 1;
+    }
+    &:hover .card-hide .view-details{
+        animation: button-up 0.5s forwards;
+    }
+    &:hover{
+        border-color: $primary;
+    }
+}
+
+@mixin hide-card(){
+    position: absolute;
+    height: 100%;
+    width: 200px;
+    background-color: #1d1d1dad;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    opacity: 0;
+    transition: all ease 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    img{
+        width: 30px;
+    }
+    .rating{
+        color: $main-txt;
+        font-weight: 700;
+        font-size: $fz-h5;
+    }
+    .catagory{
+        color: $main-txt;
+        font-weight: 700;
+        font-size: $fz-h5;
+    }
+    .view-details{
+        margin-top: 1rem;
+        width: 120px;
+        height: 35px;
+        border-radius: $br-3;
+        background-color: $primary;
+        color: $main-txt;
+        cursor: pointer;
+        font-weight: 700;
+        opacity: 0; 
+        transform: translateY(30px); 
+        &:hover{
+            background-color: $secondary
+        }
+    }
+    @keyframes button-up {
+        0%{
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100%{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+}
+
+
+
+
+
+
+// hero section start 
+
+
+
+
+
+
+
+
+
+#hero{
+    width: 100%;
+    min-height: 100vh;
+    background-color: $navbar-bg;
+
+    .navbar{
+        width: 100%;
+        height: 60px;
+        border-bottom: 1px solid $hr;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px $s-80;
+        cursor: pointer;
+
+        ul li{
+            display: inline-block;
+            margin: $s-16;
+
+            a{
+                font-size: 14px;
+                color: $nav-item;
+                transition: $transition;
+                font-weight: 700;
+                &:hover{
+                    color: $main-txt;
+                }
+            }
+            .highlight{
+                color: $primary;
+            }
+        }
+        .hamburger{
+            cursor: pointer;
+            display: none;
+
+            .bar{
+                width: 23px;
+                margin-bottom: 4px;
+                background-color: $main-txt;
+                cursor: pointer;
+                height: 3px;
+            }
+        }
+    }
+    .hero-section{
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-image: url(../img/hero-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        .hero-bg-top{
+            width: 100%;
+            height: calc(100vh - 60px);
+            background-color: #1d1d1de1;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+
+            .hero-txt{
+                padding: 2rem 1rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+
+                h2{
+                    color: $main-txt;
+                }
+
+                p{
+                    margin-top: 1rem;
+                    width: 65vw;
+                    color: $text-light;
+                }
+
+                .search-wrap {
+                    margin-top: 1.5rem;
+                    position: relative;
+                    display: inline-block;
+                
+                    .search-input {
+                        padding-right: 40px; 
+                        height: 40px;
+                        width: 350px;
+                        border-radius: $br-3;
+                        padding: 0px 10px;
+                        background-color: transparent;
+                        border: 2px solid $nav-item;
+                        color: $main-txt;
+                        &::placeholder{
+                            color: $nav-item;
+                        }
+                    }
+                
+                    .search-icon {
+                        position: absolute;
+                        top: 50%;
+                        right: 10px; 
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                        width: 20px;
+                        aspect-ratio: 1/1;
+                    }
+                }
+                
+            }
+
+            .populer-this-weak{
+                width: 100%;
+                min-height: 300px;
+
+                // border: 2px solid orange;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: $s-16 $s-80;
+                gap: 1rem;
+
+                .movie-card{
+                    @include card-movie();
+                    margin: 10px auto;
+                }
+                
+                .hero-card-1{
+                    background : url(../img/hero-img-5/1.jpg);
+                    @include bg-reset();
+                }
+
+                .hero-card-2{
+                    background : url(../img/hero-img-5/2.jpg);
+                    @include bg-reset();
+                }
+
+                .hero-card-3{
+                    background : url(../img/hero-img-5/3.jpg);
+                    @include bg-reset();
+                }
+
+                .hero-card-4{
+                    background : url(../img/hero-img-5/4.jpg);
+                    @include bg-reset();
+                }
+
+                .hero-card-5{
+                    background : url(../img/hero-img-5/5.jpg);
+                    @include bg-reset();
+                }
+
+
+                    .card-hide{
+                        @include hide-card();
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+@media screen and (max-width : 768px) {
+    #hero{
+        .navbar{
+            padding: 0px $s-32;
+
+            .logo{
+                transform: scale(0.8);
+            }
+            ul{
+                display: none;
+            }
+            .hamburger{
+                display: block;
+            }
+        }
+        .hero-section{
+            min-height: 100vh;
+            height: auto;
+            .hero-bg-top{
+                min-height: 100vh;
+                height: auto;
+                .hero-txt{
+                    padding: 1.5rem $s-8;
+                    text-align: center;
+
+                    h2{
+                        font-size: $fz-h3;
+                        line-height: 2.75rem;
+                    }
+
+                    p{
+                        width: 80vw;
+                    }
+
+                    .search-wrap{
+                        .search-input{
+                            width: 250px;
+                        }
+                    }
+                }
+                .populer-this-weak{
+                    padding: 0px $s-24;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.75rem;
+
+                    .movie-card{
+                        max-width: 150px;
+                        max-height: 240px;
+
+                        .card-hide{
+                            max-width: 150px;
+                            max-height: 240px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}    
